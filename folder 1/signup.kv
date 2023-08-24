@@ -1,0 +1,98 @@
+<SignUpScreen>
+    name:"signup_screen"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "pexels-mathilde-langevin-11719116.jpg"
+    MDIconButton:
+        icon: "account-circle"
+        user_font_size: "150sp"
+        theme_icon_color: "Custom"
+        icon_color: "black"
+        pos_hint: {'center_x': .15,"center_y": .85}
+        on_press: root.upload_picture()
+
+    MDTextField:
+        id: email
+        hint_text:"Email"
+        hint_text_color_normal:"black"
+        hint_text_color_focus:"grey"
+        line_color_normal:"grey"
+        line_color_focus: "white"
+        size_hint_x: .60
+        pos_hint: {"center_x": .35, "center_y": .65}
+        mode: "fill"
+        text_color_normal: "white"
+        text_color_focus: "black"
+        text_name:"POLAROID.otf"
+        icon_right:"email"
+        icon_right_color_normal:"grey"
+        icon_right_color_focus:"black"
+
+    MDTextField:
+        id: Username
+        hint_text:"Username"
+        hint_text_color_normal:"black"
+        hint_text_color_focus:"grey"
+        line_color_normal:"grey"
+        line_color_focus: "white"
+        size_hint_x: .60
+        pos_hint: {"center_x": .35, "center_y": .55}
+        mode: "fill"
+        text_color_normal: "white"
+        text_color_focus: "black"
+        icon_right:"account"
+        icon_right_color_normal:"grey"
+        icon_right_color_focus:"black"
+
+    MDTextField:
+        id: password
+        hint_text:"Password"
+        hint_text_color_normal:"black"
+        hint_text_color_focus:"grey"
+        line_color_normal:"grey"
+        line_color_focus: "white"
+        size_hint_x: .60
+        pos_hint: {"center_x": .35, "center_y": .45}
+        mode: "fill"
+        text_color_normal: "black"
+        text_color_focus: "black"
+        password: True
+    MDIconButton:
+        icon: "eye"
+        theme_icon_color: "Custom"
+        icon_colour: "black"
+        pos_hint: {"center_x": .63, "center_y": .45}
+        on_press:
+            self.icon = "eye-off" if self.icon == "eye" else "eye"
+            password.password = False if password.password ==True else True
+
+
+
+    MDFillRoundFlatButton:
+        text: "Sign up"
+        pos_hint: {'center_x': .5, 'center_y': .15}
+        text_color: "black"
+        font_size : "20sp"
+        size_hint_x: .60
+        md_bg_color: "grey"
+        font_name: "Roboto-Bold"
+        on_press: root.signup()
+
+    MDRaisedButton:
+        text: "Already have an account? login!"
+        pos_hint: {'center_x': .50, 'center_y': .05}
+        text_color: "black"
+        font_size : "20sp"
+        size_hint_x: 1
+        md_bg_color: "grey"
+        font_name: "Roboto-Bold"
+        on_press: root.manager.current = "login_screen"
+
+    MDIconButton:
+        icon: "arrow-left"
+        theme_icon_color: "Custom"
+        icon_colour: "black"
+        pos_hint: {"center_x": .05, "center_y": .95}
+        on_press:root.manager.current = "welcome_screen"

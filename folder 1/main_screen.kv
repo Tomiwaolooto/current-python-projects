@@ -1,0 +1,154 @@
+
+<FeedsCard>
+    orientation: "vertical"
+    size_hint_y: None
+    height: "300dp"
+    radius: [30,]
+    size_hint_x: .9
+    adaptive_height: True
+    spacing: '10dp'
+    elevation: 20
+    Image:
+        source: root.image
+        # size_hint: .8, .5
+    MDLabel:
+        text: root.text
+        font_size: "17sp"
+        theme_text_color: "Custom"
+        text_color: "white"
+        halign: "center"
+
+<MainScreen>
+    name: "main_screen"
+    MDBottomNavigation:
+        text_color_active: "white"
+        text_theme_color:"Custom"
+        use_text: True
+        MDBottomNavigationItem:
+            name: "screen 1"
+            text: "Feeds"
+            icon: "newspaper"
+            md_bg_color:"black"
+
+
+            # Add Contents here
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: '12dp'
+                padding: ('12dp', '66dp', '12dp', '12dp')
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    adaptive_height: True
+                    MDIconButton:
+                        icon: "camera-plus"
+                        theme_icon_color: "Custom"
+                        icon_color: "grey"
+                        user_font_size: "35sp"
+                        md_bg_color: "black"
+                        on_press: root.upload_picture()
+                    MDTextField:
+                        id: feed_text_field
+                        hint_text: "What's on your mind?"
+                        hint_text_color_focus: "grey"
+                        hint_text_color_normal: "black"
+                        text_color_normal: "grey"
+                        text_color_focus: "white"
+                        mode: "fill"
+                        size_hint_x: .7
+                    MDIconButton:
+                        icon: "send"
+                        theme_icon_color: "Custom"
+                        icon_color: "grey"
+                        user_font_size: "35sp"
+                        md_bg_color: "black"
+                        on_press: root.send()
+                ScrollView:
+                    do_scroll_x: False
+                    do_scroll_y: True
+                    MDList:
+                        id: container
+                        spacing: "24dp"
+                        padding: "20dp"
+
+
+
+        MDBottomNavigationItem:
+            name: "screen 2"
+            text: "Friends"
+            icon: "account-multiple"
+            text_color_active: "indigo"
+            # Add Contents here
+
+        MDBottomNavigationItem:
+            name: "screen 3"
+            text: "Chats"
+            icon: "chat"
+            text_color_active: "indigo"
+            # Add Contents here
+        MDBottomNavigationItem:
+            name: "screen 4"
+            text: "Notifications"
+            icon: "bell"
+            text_color_active: "indigo"
+            # Add Contents here
+
+
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDTopAppBar:
+                        title: "Hi, Umar"
+                        md_bg_color: "grey"
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                        elevation: 30
+                    Widget:
+
+        # Navigation Drawer Panel
+        MDNavigationDrawer:
+            # Add Navigation Drawer Panel Content here.
+            id: nav_drawer
+            # radius: (0, 16, 16, 0) if self.anchor == "left" else (16, 0, 0, 16)
+            md_bg_color: "grey"
+            # MDFloatLayout:
+            MDBoxLayout:
+                orientation:"vertical"
+                spacing: '10dp'
+                padding: '8dp'
+
+                MDLabel:
+                    text: "FaceBook"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    font_size:"25sp"
+                    font_name: 'Roboto-Bold'
+                    height: self.texture_size[1]
+                    size_hint_y: None
+                MDList:
+                    OneLineIconListItem:
+                        text: "profile"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        IconLeftWidget:
+                            icon: "account"
+                            theme_icon_color: "Custom"
+                            icon_color: "white"
+
+                    OneLineIconListItem:
+                        text: "Settings"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        IconLeftWidget:
+                            icon: "cog"
+                            theme_icon_color: "Custom"
+                            icon_color: "white"
+                    OneLineIconListItem:
+                        text: "Logout"
+                        theme_text_color: "Custom"
+                        text_color: "black"
+                        md_bg_color: "red"
+                        IconLeftWidget:
+                            icon: "logout"
+                            theme_icon_color: "Custom"
+                            icon_color: "black"

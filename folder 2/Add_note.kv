@@ -1,0 +1,75 @@
+#:import  gch kivy.utils.get_color_from_hex
+#: import Gradient kivy_gradient.Gradient
+<ListItem>
+    text: root.title
+    theme_text_color:"Custom"
+    secondary_theme_text_color:"Custom"
+    secondary_text: root.body
+    text_color: "white"
+    secondary_text_color:"grey"
+    on_press: root.show_notes()
+    IconLeftWidget:
+        icon: 'delete'
+        md_bg_color:"black"
+        theme_icon_color:"Custom"
+        icon_color: "red"
+        on_press: app.delete_note(root.title, root.body)
+
+<AddNoteScreen>
+    name:"add_note_screen"
+    md_bg_color:get_color_from_hex("587078")
+
+    MDTopAppBar:
+        title: "Add Note"
+        specific_text_name: 'firgine.otf'
+        #font_size: "20sp"
+        anchor_title: "center"
+        md_bg_color:get_color_from_hex("406070")
+        specific_text_color: "black"
+        left_action_items: [["arrow-left", lambda x: root.go_back()]]
+        pos_hint: {"top": 1}
+
+
+
+    MDTextField:
+        id:title
+        hint_text:"Title"
+        hint_text_color_normal:"white"
+        hint_text_color_focus:get_color_from_hex("A0B8C8")
+        text_color_normal:get_color_from_hex("A0B8C8")
+        text_color_focus: get_color_from_hex("385058")
+        line_color_normal:get_color_from_hex("7898A0")
+        line_color_focus:get_color_from_hex("7898A8")
+        multiline: False
+        font_style: "H5"
+        bold: True
+        mode: "rectangle"
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+
+    MDTextField:
+        id:body
+        hint_text:"Body.."
+        hint_text_color_normal:"white"
+        hint_text_color_focus:get_color_from_hex("A0B8C8")
+        text_color_normal:get_color_from_hex("A0B8C8")
+        text_color_focus: get_color_from_hex("385058")
+        line_color_normal:get_color_from_hex("7898A0")
+        line_color_focus:get_color_from_hex("7898A8")
+        multiline: True
+        font_style: "Body"
+        bold: True
+        mode: "rectangle"
+        size_hint_x: .8
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        size_hint_y: .5
+
+    MDRectangleFlatButton:
+        text: "save"
+        font_size: "25sp"
+        md_bg_color:get_color_from_hex("406070")
+        text_color: get_color_from_hex("A0B8C8")
+        line_color:get_color_from_hex("406070")
+        size_hint_x: .3
+        pos_hint: {"center_x": .5, "center_y": .15}
+        on_press: root.save_note()

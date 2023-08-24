@@ -1,0 +1,73 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
+
+            Screen:
+<MainScreen>
+    name: "MainScreen"
+    MDNavigationLayout:
+        ScreenManager:
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDTopAppBar:
+                        title: "welcome"
+                        #Specific_text_color:get_color_from_hex("2890A8")
+                        md_bg_color: get_color_from_hex("2890A8")
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                        right_action_items:[["magnify", lambda x: app.callback()],["plus", lambda x: AddEmployee("open")]]
+                    Widget:
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            radius: (0, 16, 16, 0) if self.anchor == "left" else (16, 0, 0, 16)
+            md_bg_color: get_color_from_hex("2888A0")
+            # MDFloatLayout:
+            MDBoxLayout:
+                orientation:"vertical"
+                spacing: '10dp'
+                padding: '8dp'
+                MDIconButton:
+                    #icon: "account-circle"
+                    icon: "IMG-20220901-WA0005.jpg"
+                    user_font_size: "150sp"
+                    theme_icon_color: "Custom"
+                    icon_color:get_color_from_hex("58A0B0")
+                    #pos_hint: {'center_x': .12,"center_y": .77}
+                    #on_press: root.upload_picture()
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: "profile"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            IconLeftWidget:
+                                icon: "account"
+                                theme_icon_color: "Custom"
+                                icon_color: "white"
+                        OneLineIconListItem:
+                            text: "Settings"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            IconLeftWidget:
+                                icon: "cog"
+                                theme_icon_color: "Custom"
+                                icon_color: "white"
+
+                        OneLineIconListItem:
+                            on_press:root.manager.current = "Welcome_screen"
+                            text: "Logout"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            md_bg_color: "red"
+                            IconLeftWidget:
+                                icon: "logout"
+                                theme_icon_color: "Custom"
+                                icon_color: get_color_from_hex("401810")
+
+    ScrollView:
+        pos_hint: {'center_x': 0.2, 'center_y': 0.25}
+        size_hint: 0.8, 0.8
+        MDList:
+            id:employ_list_view
+            bar_width: "5sp"
+            size_hint: 1, None
+            height: self.minimum_height

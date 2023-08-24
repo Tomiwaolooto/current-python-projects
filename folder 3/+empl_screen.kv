@@ -1,0 +1,149 @@
+<AddEmployee>
+    name:"Adem_screen"
+    md_bg_color:get_color_from_hex("f6f6f6")
+
+
+    ScrollView:
+        BoxLayout:
+            orientation:"vertical"
+            spacing:"22dp"
+            size_hint: 1,None
+            height: "800dp"
+            MDIconButton:
+                icon: "arrow-left"
+                theme_icon_color: "Custom"
+                icon_colour: get_color_from_hex("585858")
+                pos_hint: {"center_x": .05, "center_y": .95}
+                on_press:root.manager.current = "Welcome_screen"
+            MDIconButton:
+                id: picture
+                icon: "account-circle"
+                user_font_size: "150sp"
+                theme_icon_color: "Custom"
+                icon_color:get_color_from_hex("2888A0")
+                pos_hint: {'center_x': .12,"center_y": .77}
+                on_press: root.upload_picture()
+
+            MDTextField:
+                id: name
+                hint_text:"Name"
+                hint_text_color_normal: get_color_from_hex("585858")
+                hint_text_color_focus:  get_color_from_hex("585858")
+                hint_text_name:"OpenSans-Regular.ttf"
+                line_color_normal:get_color_from_hex("2888A0")
+                line_color_focus:  get_color_from_hex("48C8E8")
+                icon_right: "account"
+                icon_right_color:  get_color_from_hex("585858")
+                icon_right_color_focus:  get_color_from_hex("585858")
+                helper_text:"(Full_Name) Name must be 2 - 15 characters"
+                helper_text_mode:"on_focus"
+                size_hint_x: .50
+                pos_hint: {"center_x": .29, "center_y": .57}
+                mode: "rectangle"
+                text_color_normal: get_color_from_hex("585858")
+                text_color_focus: "black"
+                text_name: "OpenSans-Regular.ttf"
+
+            MDTextField:
+                id: username
+                hint_text:"Username"
+                hint_text_color_normal: get_color_from_hex("585858")
+                hint_text_color_focus:  get_color_from_hex("585858")
+                hint_text_name:"OpenSans-Regular.ttf"
+                line_color_normal:get_color_from_hex("2888A0")
+                line_color_focus:  get_color_from_hex("48C8E8")
+                icon_right: "account"
+                icon_right_color:  get_color_from_hex("585858")
+                icon_right_color_focus:  get_color_from_hex("585858")
+                helper_text:"Name must be 2 - 15 characters"
+                helper_text_mode:"on_focus"
+                size_hint_x: .50
+                pos_hint: {"center_x": .29, "center_y": .57}
+                mode: "rectangle"
+                text_color_normal: get_color_from_hex("585858")
+                text_color_focus: "black"
+                text_name: "OpenSans-Regular.ttf"
+
+            MDTextField:
+                id: email
+                hint_text:"Email"
+                hint_text_color_normal: get_color_from_hex("585858")
+                hint_text_color_focus:  get_color_from_hex("585858")
+                hint_text_name:"OpenSans-Regular.ttf"
+                line_color_normal:get_color_from_hex("2888A0")
+                line_color_focus:  get_color_from_hex("48C8E8")
+                icon_right: "email"
+                icon_right_color:  get_color_from_hex("585858")
+                icon_right_color_focus:  get_color_from_hex("585858")
+                helper_text:"example@gmail.com"
+                helper_text_mode:"on_focus"
+                size_hint_x: .50
+                pos_hint: {"center_x": .29, "center_y": .42}
+                mode: "rectangle"
+                text_color_normal: get_color_from_hex("585858")
+                text_color_focus: "black"
+                text_name: "OpenSans-Regular.ttf"
+
+            GridLayout:
+                cols: 2
+                pos_hint: {"center_x": .28}
+                size_hint: 0.5, 1
+                MDLabel:
+                    text: "Male"
+                    text_name: "OpenSans-Regular.ttf"
+                    text_color_normal: get_color_from_hex("585858")
+
+                MDCheckbox:
+                    group: "group"
+                    on_active:root.Checkbox_click(self,self.active,"male")
+
+                MDLabel:
+                    text: "Female"
+                    text_name: "OpenSans-Regular.ttf"
+                    text_color_normal: get_color_from_hex("585858")
+
+                MDCheckbox:
+                    group: "group"
+                    on_active:root.Checkbox_click(self,self.active,"female" )
+
+
+            MDTextField:
+                id: dob
+                hint_text:"Date of birth"
+                hint_text_color_normal: get_color_from_hex("585858")
+                hint_text_color_focus:  get_color_from_hex("585858")
+                hint_text_name:"OpenSans-Regular.ttf"
+                line_color_normal:get_color_from_hex("2888A0")
+                line_color_focus:  get_color_from_hex("48C8E8")
+                icon_right: "date"
+                icon_right_color:  get_color_from_hex("585858")
+                icon_right_color_focus:  get_color_from_hex("585858")
+                size_hint_x: .50
+                pos_hint: {"center_x": .29, "center_y": .15}
+                mode: "rectangle"
+                text_color_normal: get_color_from_hex("585858")
+                text_color_focus: "black"
+                text_name: "OpenSans-Regular.ttf"
+                on_focus: root.open_datepicker()
+            BoxLayout:
+                size_hint: 0.3, None
+                size_y: "40dp"
+                pos_hint: {"center_x": .50, }
+                MDFillRoundFlatButton:
+                    text:"Sign-up"
+                    md_bg_color:get_color_from_hex("2888A0")
+                    size_hint_x: .30
+                    pos_hint: {"center_x": .60, }
+                    on_press: root.signup()
+    MDLabel:
+        id: gen
+        text:""
+        text_color:get_color_from_hex("f6f6f6")
+        pos_hint: {"center_x": 90, }
+    Image:
+        source:"IMG-20220901-WA0005.jpg"
+        allow_stretch: True
+        pos_hint: {'center_x': .90, 'center_y': .90 }
+        size_hint_x: .15
+        size_hint_y: .15
+

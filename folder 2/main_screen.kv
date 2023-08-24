@@ -1,0 +1,41 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
+
+<MainScreen>
+    name:"Main_screen"
+    md_bg_color:get_color_from_hex("587078")
+
+
+    MDFloatLayout:
+        md_bg_color:get_color_from_hex("406070")
+        size_hint_x: 1
+        size_hint_y:.3
+        pos_hint:{'center x': 0.5,'center_y': 0.87}
+
+    MDIconButton:
+        icon: "plus"
+        icon_size: "50sp"
+        theme_icon_color: "Custom"
+        icon_color:get_color_from_hex("A0B8C8")
+        md_bg_color:get_color_from_hex("587078")
+        pos_hint: {'center_x': .85,"center_y": 0.7}
+        on_press:root.manager.current = "add_note_screen"
+
+    MDLabel:
+        text:"CHRONICLE"
+        pos_hint:{'x': .10, "center_y": .85}
+        font_style:"H4"
+        font_size: "50sp"
+        font_name: 'firgine.otf'
+        theme_text_color: 'Custom'
+        text_color: get_color_from_hex("A0B8C8")
+        bold: True
+
+    ScrollView:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint: 1, 0.4
+        MDList:
+            id:Chr_lst_view
+            bar_width: "4sp"
+            size_hint: 1, None
+            height: self.minimum_height

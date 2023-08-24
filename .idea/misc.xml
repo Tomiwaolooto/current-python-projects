@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/folder 1/login.kv" />
+    <file url="file://$PROJECT_DIR$/folder 1/main_screen.kv" />
+    <file url="file://$PROJECT_DIR$/folder 1/signup.kv" />
+    <file url="file://$PROJECT_DIR$/folder 1/welcome.kv" />
+    <file url="file://$PROJECT_DIR$/folder 2/Add_note.kv" />
+    <file url="file://$PROJECT_DIR$/folder 2/main_screen.kv" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (spreadsheet processor)" project-jdk-type="Python SDK" />
+</project>

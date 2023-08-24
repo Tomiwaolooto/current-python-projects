@@ -1,0 +1,86 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
+
+<WelcomeScreen>
+    name:"Welcome_screen"
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            texture: Gradient.horizontal(get_color_from_hex("f6f6f6"),get_color_from_hex("f6f6f6"), get_color_from_hex("2888A0"), get_color_from_hex("2888A0"))
+
+    MDRectangleFlatButton:
+        text:"Continue"
+        pos_hint: {'center_x': .75, 'center_y': .20}
+        text_color: "white"
+        font_size : "20sp"
+        size_hint_x: .20
+        size_hint_y: .05
+        md_bg_color: get_color_from_hex("2888A0")
+        font_name: "OpenSans-Regular.ttf"
+        on_press:root.manager.current = "MainScreen"
+
+    MDTextField:
+        id: Namefield
+        hint_text:"username"
+        hint_text_color_normal:"white"
+        hint_text_color_focus:  get_color_from_hex("585858")
+        hint_text_name:"OpenSans-Regular.ttf"
+        line_color_normal:get_color_from_hex("105078")
+        line_color_focus:  get_color_from_hex("48C8E8")
+        icon_right: "account"
+        icon_right_color:  get_color_from_hex("585858")
+        icon_right_color_focus:  get_color_from_hex("585858")
+        helper_text:"Name must be 2 - 15 characters"
+        helper_text_mode:"on_focus"
+        size_hint_x: .30
+        pos_hint: {"center_x": .75, "center_y": .55}
+        mode: "rectangle"
+        text_color_normal: get_color_from_hex("585858")
+        text_color_focus: "white"
+        text_name: "OpenSans-Regular.ttf"
+
+    MDTextField:
+        id: Email
+        hint_text:"Email"
+        hint_text_color_normal:"white"
+        hint_text_color_focus:  get_color_from_hex("585858")
+        hint_text_name:"OpenSans-Regular.ttf"
+        line_color_normal:get_color_from_hex("105078")
+        line_color_focus:  get_color_from_hex("48C8E8")
+        helper_text:"example@gmail.com"
+        helper_text_mode:"on_focus"
+        icon_right: "email"
+        icon_right_color:  get_color_from_hex("585858")
+        icon_right_color_focus:  get_color_from_hex("585858")
+        size_hint_x: .30
+        pos_hint: {"center_x": .75, "center_y": .40}
+        mode: "rectangle"
+        text_color_normal: get_color_from_hex("585858")
+        text_color_focus: "white"
+        text_name: "OpenSans-Regular.ttf"
+
+    MDRectangleFlatButton:
+        text: "don't have an account? sign-up!"
+        pos_hint: {'center_x': .50, 'center_y': .05}
+        text_color:  get_color_from_hex("585858")
+        font_size : "20sp"
+        size_hint_x: 1
+        line_color:  get_color_from_hex("585858")
+        texture:  Gradient.horizontal(get_color_from_hex("f6f6f6"),get_color_from_hex("f6f6f6"), get_color_from_hex("2890B0"))
+        font_name: "OpenSans-Regular.ttf"
+        on_press: root.manager.current = "SignUpScreen"
+
+    BoxLayout:
+        orientation: "vertical"
+        size:root.width, root.height
+
+        padding: 50
+        spacing: 20
+
+        Image:
+            source:"IMG-20220901-WA0005.jpg"
+            allow_stretch: True
+            pos_hint: {'center_x': .15, 'center_y': .20}
+            size_hint_x: .30
+            size_hint_y: .30
